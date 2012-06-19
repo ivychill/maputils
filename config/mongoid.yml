@@ -1,0 +1,11 @@
+development:
+  host: localhost
+  database: maputils_development
+
+test:
+  host: localhost
+  database: maputils_test
+
+# set these environment variables on your prod server
+production:
+  uri: <%= ENV['MONGOHQ_URL'] %>

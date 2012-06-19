@@ -1,0 +1,18 @@
+%h1 Road#index
+%table
+  %tr
+    %th name
+    %th direction
+    %th from
+    %th to
+
+  - @roads.each do |road|
+    %tr
+      %td= road.name
+      %td= road.direction
+      %td= road.from
+      %td= road.to
+
+%br
+
+= link_to 'New Road', new_road_path

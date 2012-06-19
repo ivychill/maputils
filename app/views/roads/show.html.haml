@@ -1,0 +1,41 @@
+%p#notice= notice
+
+%p
+  %b road:
+  = @road.name
+%p
+  %b direction:
+  = @road.direction
+
+%p
+  %b from:
+  = @road.from
+
+%p
+  %b to:
+  = @road.to
+
+- if @road.pois.size > 0 
+  <h2>pois</h2>
+  - for poi in @road.pois do
+    = poi.ref 
+    = poi.ref_type
+    = poi.X 
+    = poi.Y
+    %br
+  
+= simple_form_for [@road, Poi.new] do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :ref
+    = f.input :ref_type
+    = f.input :X
+    = f.input :Y
+
+  .form-actions
+    = f.button :submit
+
+= link_to 'Edit', edit_road_path(@road)
+\|
+= link_to 'Back', roads_path
