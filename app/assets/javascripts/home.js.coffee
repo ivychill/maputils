@@ -3,7 +3,6 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 addrs = null
 startIndex = 0
-singletonLock = false
 
 $(document).ready ->
 	initMap()
@@ -17,24 +16,27 @@ processRoads = (data) ->
 	#alert str_road
 	addrs = data
 	startIndex = 0
-	singletonLock = false
-	geocodeSearch()
+	showAllPois()
+	//geocodeSearch()
 
-geocodeSearch = () ->
-	if singletonLock
-		setTimeout(geocodeSearch, 500) 
-		return
-	singletonLock = true
-	ii = 0
-	#for road in [addrs[0], addrs[1], addrs[2], addrs[3], addrs[4], addrs[5]]
+showAllPois = () ->
 	for road in addrs
 		#if road.pois has a X, Y add a marker
 		if road.pois
 			for poi in road.pois
-				continue if ii++ < startIndex
 				if poi.X && poi.Y
 					point = new BMap.Point(poi.Y, poi.X)
 					addMarker(point, road.name+poi.ref, road.name+poi.ref)
+
+geocodeSearch = () ->
+	ii = 0
+	#for road in [addrs[0], addrs[1], addrs[2], addrs[3], addrs[4], addrs[5]]
+	for road in addrs
+		if road.pois
+			for poi in road.pois
+				continue if ii++ < startIndex
+				if poi.X && poi.Y
+					continue
 				else
 					getXY(road.name, poi.ref, poi.ref_type, (point) ->
 						if (point)
@@ -53,7 +55,6 @@ geocodeSearch = () ->
 								dataType: "json"
 							})							
 							addMarker(point, road.name+poi.ref, road.name+poi.ref)
-						singletonLock = false
 					)
 					setTimeout(geocodeSearch, 500)
 					startIndex++
