@@ -34,7 +34,7 @@ geocodeSearch = () ->
 				continue if ii++ < startIndex
 				if poi.X && poi.Y
 					point = new BMap.Point(poi.Y, poi.X)
-					#addMarker(point, road.name+poi.ref, road.name+poi.ref)
+					addMarker(point, road.name+poi.ref, road.name+poi.ref)
 				else
 					getXY(road.name, poi.ref, poi.ref_type, (point) ->
 						if (point)
@@ -52,7 +52,7 @@ geocodeSearch = () ->
 								,
 								dataType: "json"
 							})							
-							#addMarker(point, road.name+poi.ref, road.name+poi.ref)
+							addMarker(point, road.name+poi.ref, road.name+poi.ref)
 						singletonLock = false
 					)
 					setTimeout(geocodeSearch, 500)

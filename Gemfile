@@ -41,3 +41,5 @@ gem "mongoid", ">= 2.4.10"
 gem "devise", ">= 2.1.0"
 gem "bootstrap-sass", ">= 2.0.3"
 gem "simple_form"
+gem "capistrano", :group => :development
+gem "rvm-capistrano", :group => :development

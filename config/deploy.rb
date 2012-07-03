@@ -2,7 +2,7 @@ require 'rvm/capistrano'
 require 'bundler/capistrano'
 
 set :application, "maputils"
-set :repository,  "git://github.com/caiqingfeng/maputils.git"
+set :repository,  "git@github.com:ivychill/#{application}.git"
 
 set :scm, :git
 set :user, "caiqingfeng"

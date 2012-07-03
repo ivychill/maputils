@@ -37,7 +37,7 @@ function addMarker(latlong, title, content) {
 	
 	var infoWindow = new BMap.InfoWindow(content);
 
-	marker.addEventListener('click', function() {
-		this.openInfoWindow(infoWindow);
-	});
+	//marker.addEventListener('click', function() {
+	//	this.openInfoWindow(infoWindow);
+	//});
 }
