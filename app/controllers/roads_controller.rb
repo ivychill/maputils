@@ -1,20 +1,7 @@
 class RoadsController < ApplicationController
   def index
-    @roads = []
-    roads_in_db = Road.all
-    roads_in_db.each do |rd|
-    	next if !rd.pois
-    	road = nil
-    	rd.pois.each do |poi|
-    		next if poi.X && poi.Y
-    		road = Road.new :name=>rd.name, :direction=>rd.direction, :from=>rd.from, :to=>rd.to if !road
-    		road.pois.new :ref=>poi.ref, :ref_type => poi.ref_type
-    	end
-    	puts road.name if road
-    	@roads.push road if road
-    end
-
-    #@roads = Road.all
+    @roads = Road.all
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @roads }
