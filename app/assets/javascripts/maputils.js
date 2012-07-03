@@ -31,10 +31,6 @@ function getXY(filter1, filter2, filter_type, cbk_fn) {
 function addMarker(latlong, title, content) {
 	var marker = new BMap.Marker(latlong, {icon:activedIcon});
 	map.addOverlay(marker);
-	if (currentMarker) {
-		currentMarker.setIcon(inactivedIcon);
-	}
-	
 	var infoWindow = new BMap.InfoWindow(content);
 
 	//marker.addEventListener('click', function() {
