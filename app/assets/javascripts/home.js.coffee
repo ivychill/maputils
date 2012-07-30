@@ -18,9 +18,8 @@ processRoads = (data) ->
 	#alert str_road
 	addrs = data
 	showAllPois()
-	alert(resolved_pois)
+	alert("total resolved pois: "+resolved_pois)
 	geocodeSearch()
-	alert(startIndex)
 
 showAllPois = () ->
 	for road in addrs
