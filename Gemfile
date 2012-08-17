@@ -36,8 +36,10 @@ gem "guard-bundler", ">= 0.1.3", :group => :development
 gem "guard-rails", ">= 0.0.3", :group => :development
 gem "guard-rspec", ">= 0.4.3", :group => :development
 gem "guard-cucumber", ">= 0.6.1", :group => :development
-gem "bson_ext", ">= 1.6.2"
-gem "mongoid", ">= 2.4.10"
+#gem "bson_ext", ">= 1.6.2"
+gem "bson_ext", "1.6.2"
+#gem "mongoid", ">= 2.4.10"
+gem "mongoid", "2.4.10"
 gem "devise", ">= 2.1.0"
 gem "bootstrap-sass", ">= 2.0.3"
 gem "simple_form"
