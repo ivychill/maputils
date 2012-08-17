@@ -38,6 +38,7 @@ gem "guard-rspec", ">= 0.4.3", :group => :development
 gem "guard-cucumber", ">= 0.6.1", :group => :development
 #gem "bson_ext", ">= 1.6.2"
 gem "bson_ext", "1.6.2"
+gem "bson", "1.6.2"
 #gem "mongoid", ">= 2.4.10"
 gem "mongoid", "2.4.10"
 gem "devise", ">= 2.1.0"
